@@ -19,9 +19,11 @@ package com.broodcamp.util;
 import java.io.IOException;
 import java.io.StringReader;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.stream.XMLInputFactory;
 
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -33,32 +35,38 @@ import org.xml.sax.SAXException;
  */
 public class XmlUtil {
 
-	/**
-	 * Validates if a given string is a valid xml format.
-	 * 
-	 * @param xml xml string
-	 * @return true if valid, false otherwise
-	 */
-	public static boolean validate(String xml) {
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setValidating(false);
-		factory.setNamespaceAware(true);
+    private XmlUtil() {
 
-		DocumentBuilder builder;
-		try {
-			builder = factory.newDocumentBuilder();
-		} catch (ParserConfigurationException e) {
-			return false;
-		}
+    }
 
-		builder.setErrorHandler(new SimpleErrorHandler());
+    /**
+     * Validates if a given string is a valid xml format.
+     * 
+     * @param xml XML string
+     * @return true if valid, false otherwise
+     * @throws ParserConfigurationException if the factory cannot create this feature
+     */
+    public static boolean validate(String xml) throws ParserConfigurationException {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setValidating(false);
+        factory.setNamespaceAware(true);
+        factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
 
-		try {
-			builder.parse(new InputSource(new StringReader(xml)));
-		} catch (SAXException | IOException e) {
-			return false;
-		}
+        DocumentBuilder builder;
+        try {
+            builder = factory.newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            return false;
+        }
 
-		return true;
-	}
+        builder.setErrorHandler(new SimpleErrorHandler());
+
+        try {
+            builder.parse(new InputSource(new StringReader(xml)));
+        } catch (SAXException | IOException e) {
+            return false;
+        }
+
+        return true;
+    }
 }
