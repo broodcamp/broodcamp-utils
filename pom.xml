@@ -14,6 +14,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
+		<broodcamp.version>0.0.1</broodcamp.version>
 	</properties>
 
 	<dependencyManagement>
@@ -21,7 +22,7 @@
 			<dependency>
 				<groupId>com.broodcamp</groupId>
 				<artifactId>broodcamp-bom</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
+				<version>${broodcamp.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
