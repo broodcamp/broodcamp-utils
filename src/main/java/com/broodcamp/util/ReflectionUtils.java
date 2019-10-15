@@ -49,7 +49,7 @@ import org.reflections.Reflections;
  * 
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
-public class ReflectionUtil {
+public class ReflectionUtils {
 
     public static final String SET_PREFIX = "set";
 
@@ -60,7 +60,7 @@ public class ReflectionUtil {
     @SuppressWarnings("rawtypes")
     private static Map<Class, Map<Class, List<Field>>> classReferences = new HashMap<>();
 
-    private ReflectionUtil() {
+    private ReflectionUtils() {
 
     }
 
