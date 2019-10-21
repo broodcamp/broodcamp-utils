@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.broodcamp</groupId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<artifactId>broodcamp-utils</artifactId>
 	<packaging>jar</packaging>
 	<name>Broodcamp Utils</name>
