@@ -11,6 +11,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
+ * Collection of utility methods for managing JSON.
+ * 
  * @author Edward P. Legaspi | czetsuya@gmail.com
  **/
 public class JacksonUtils {
