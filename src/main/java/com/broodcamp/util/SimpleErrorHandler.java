@@ -22,7 +22,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
 /**
- * Simple error handler use by {@link XmlUtil}.
+ * Simple error handler use by {@link XmlUtils}.
  * 
  * @author Edward P. Legaspi | czetsuya@gmail.com
  **/

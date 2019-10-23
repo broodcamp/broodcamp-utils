@@ -33,9 +33,9 @@ import org.xml.sax.SAXException;
  * 
  * @author Edward P. Legaspi | czetsuya@gmail.com
  */
-public class XmlUtil {
+public class XmlUtils {
 
-    private XmlUtil() {
+    private XmlUtils() {
 
     }
 
