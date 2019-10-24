@@ -26,6 +26,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.lang.reflect.TypeVariable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -684,4 +685,19 @@ public class ReflectionUtils {
         }
     }
 
+    @SuppressWarnings("rawtypes")
+    public static Object getParameterTypeClass(Class clazz, int parameterIndex) {
+        while (!(clazz.getGenericSuperclass() instanceof ParameterizedType)) {
+            clazz = clazz.getSuperclass();
+        }
+
+        Object o = ((ParameterizedType) clazz.getGenericSuperclass()).getActualTypeArguments()[parameterIndex];
+
+        if (o instanceof TypeVariable) {
+            return ((TypeVariable) o).getBounds()[parameterIndex];
+
+        } else {
+            return o;
+        }
+    }
 }
